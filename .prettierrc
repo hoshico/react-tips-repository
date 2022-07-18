@@ -1,5 +1,5 @@
-{ 
-  "semi": false,
+{
+  "semi": true,
   "trailing": "noen",
   "singleQuote": true,
   "printWidth": 80

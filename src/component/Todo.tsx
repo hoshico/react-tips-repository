@@ -1,12 +1,18 @@
-type TodoType = {
-  userId: number;
-  title: string;
-  completed?: false;
-};
+/*
+  既存の型を元にいらないプロパティを省く
+  パターン①: Pick使用ver
+  Pick<使用する型, "使うプロパティ①" | "使うプロパティ②">
 
-export const Todo = (props: TodoType) => {
+  パターン②: Omit使用ver
+  Pick<使用する型, "省くプロパティ①">
+*/
+
+import { FC } from 'react';
+import { TodoType } from '../types/todo';
+
+export const Todo: FC<Omit<TodoType, 'id'>> = (props) => {
   const { title, userId, completed = false } = props;
-  const completeMark = completed ? "[完]" : "[未]";
+  const completeMark = completed ? '[完]' : '[未]';
 
-  return <p>{`${completeMark} ${title}(ユーザー:${userId})`}</p>
-}
+  return <p>{`${completeMark} ${title}(ユーザー:${userId})`}</p>;
+};
